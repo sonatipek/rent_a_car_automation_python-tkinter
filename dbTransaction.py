@@ -82,11 +82,3 @@ class dbTransactions:
         sonuc = mycursor.fetchall();
         for i in sonuc:
             print (i)
-
-db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
-
-
-
-
-
-
