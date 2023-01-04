@@ -33,7 +33,7 @@ class dbTransactions:
 
         except:
             # İşlem başarısız bildirimleri
-            messagebox.showerror("Veritabanı Bağlantısında Hata", "Bir hata oluştu! XAMPP gibi uygulamalardan mysql'i başlattığınızdan emin olup programı tekrar çalıştırın")
+            messagebox.showerror("Veritabanı Bağlantısında Hata", "Bir hata oluştu! XAMPP gibi uygulamalardan mysql'i başlattığınızdan emin olup programı tekrar çalıştırın. Aksi taktirde program düzgün çalışmayacaktır.")
 
             print("Bir hata oluştu! XAMPP gibi uygulamalardan mysql'i başlattığınızdan emin olup programı tekrar çalıştırın")
 
@@ -82,3 +82,10 @@ class dbTransactions:
         sonuc = mycursor.fetchall();
         for i in sonuc:
             print (i)
+    
+    # def deleteDb(self):
+    #     mycursor = self.baglanti.cursor()
+
+    #     mycursor.execute(f"DROP DATABASE {self.mydb}")
+
+    #     self.baglanti.commit()

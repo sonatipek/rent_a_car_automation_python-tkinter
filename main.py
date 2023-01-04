@@ -25,7 +25,7 @@ musteriEkle = Button(mainWindow, text="Müşteri Ekle", command=musteriEkran,
         fg="white",
         height=3, 
         width=20,
-        font=myFont).grid(padx=2, pady=200, row=0, column=4)
+        font=myFont).grid(padx=2, pady=200, row=0, column=0)
 
 # Araba Ekleme Butonu ile araba ekleme sayfasına yönlendirme
 arabaEkle = Button(mainWindow, text="Araba Ekle", command=arabaEkrani,
@@ -34,7 +34,7 @@ arabaEkle = Button(mainWindow, text="Araba Ekle", command=arabaEkrani,
         fg="white",
         height=3, 
         width=20,
-        font=myFont).grid(padx=2, pady=200, row=0, column=3)
+        font=myFont).grid(padx=2, pady=200, row=0, column=1)
 
 # Araç Kirala Butonu ile araç kiralama sayfasına yönlendirme
 aracKirala  = Button(mainWindow, text="Araç Kirala", command=kiralamaEkrani, 
@@ -52,9 +52,22 @@ aracListele = Button(mainWindow, text="Kiralanan Araçları Listele", command=Li
         fg="white",
         height=3, 
         width=20, 
-        font=myFont).grid(padx=2, pady=200, row=0, column=1)
+        font=myFont).grid(padx=2, pady=200, row=0, column=3)
+
+copyrightLabel = Label(mainWindow, text="© 2022 Sonat Saygın İpek | Bergama MYO Bilgisayar Programcılığı 2.Sınıf",
+        bg="white").grid(row=1, column=0)
+
+# # Veritabanı silme butonu
+# dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=dbTransactions.deleteDb, 
+#         bg="#0A2647", 
+#         border="0", 
+#         fg="white",
+#         height=3, 
+#         width=20).grid(padx=2, pady=2, row=1, column=0)
 
 # Veritabanı bağlantısı
-db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
-
+# try:
+#         db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
+# except:
+#         messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine getirilmeyecektir.")
 mainWindow.mainloop()
