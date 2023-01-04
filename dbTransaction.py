@@ -1,4 +1,6 @@
 import mysql.connector
+from tkinter import *
+from tkinter import messagebox
 
 class dbTransactions:
     mydb=""
@@ -18,11 +20,23 @@ class dbTransactions:
 
     # MySQL'e bağlanıp, veritabanı oluşturmak
     def dbCon(self):
-        db = mysql.connector.connect(host=self.hostname, user=self.username, password=self.mypassword)
-        mycursor = db.cursor()
+        try:
+            db = mysql.connector.connect(host=self.hostname, user=self.username, password=self.mypassword)
+            mycursor = db.cursor()
 
-        mycursor.execute(f"CREATE DATABASE IF NOT EXISTS {self.mydb}")
-    
+            mycursor.execute(f"CREATE DATABASE IF NOT EXISTS {self.mydb}")
+
+            # İşlem başarılı bildirimi
+            messagebox.showinfo(title="Veritabanı Bilgisi", message="Veritabanı bağlantısı kuruldu! İşlemlerinize devam edebilirsiniz.")
+
+            return db
+
+        except:
+            # İşlem başarısız bildirimleri
+            messagebox.showerror("Veritabanı Bağlantısında Hata", "Bir hata oluştu! XAMPP gibi uygulamalardan mysql'i başlattığınızdan emin olup programı tekrar çalıştırın")
+
+            print("Bir hata oluştu! XAMPP gibi uygulamalardan mysql'i başlattığınızdan emin olup programı tekrar çalıştırın")
+
     # MySQL'de oluşturulan veritabanına bağlanıp, gerekli tabloları oluşturmak
     def createTables(self):
         db = mysql.connector.connect(host=self.hostname, user=self.username, password=self.mypassword, database=self.mydb)
