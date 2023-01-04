@@ -8,12 +8,19 @@ from windows.kiralamaEkran import kiralamaEkrani
 from windows.listeEkran import ListeEkrani
 
 # Veritabanı işlemlerinin dahil edilmesi
-from dbTransaction import dbTransactions
+from windows.dbTransaction import dbTransactions
 
 mainWindow = Tk()
 mainWindow.title("Bergama Araç Kiralama | Ana Menü")
 mainWindow.resizable("false","false")
 mainWindow.configure(background="white")
+
+# Veritabanı bağlantısı
+try:
+        db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
+except:
+        messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine getirilmeyecektir.")
+
 
 # Font Tanımlaması
 myFont = ("Arial", 12, "bold")
@@ -58,16 +65,11 @@ copyrightLabel = Label(mainWindow, text="© 2022 Sonat Saygın İpek | Bergama M
         bg="white").grid(row=1, column=0)
 
 # # Veritabanı silme butonu
-# dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=dbTransactions.deleteDb, 
-#         bg="#0A2647", 
-#         border="0", 
-#         fg="white",
-#         height=3, 
-#         width=20).grid(padx=2, pady=2, row=1, column=0)
+dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=db1.deleteDb, 
+        bg="#0A2647", 
+        border="0", 
+        fg="white",
+        height=3, 
+        width=20).grid(padx=2, pady=2, row=1, column=0)
 
-# Veritabanı bağlantısı
-# try:
-#         db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
-# except:
-#         messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine getirilmeyecektir.")
 mainWindow.mainloop()

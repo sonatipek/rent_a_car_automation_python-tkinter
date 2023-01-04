@@ -83,9 +83,9 @@ class dbTransactions:
         for i in sonuc:
             print (i)
     
-    # def deleteDb(self):
-    #     mycursor = self.baglanti.cursor()
+    def deleteDb(self):
+        mycursor = self.baglanti.cursor()
 
-    #     mycursor.execute(f"DROP DATABASE {self.mydb}")
+        mycursor.execute(f"DROP DATABASE {self.mydb}")
 
-    #     self.baglanti.commit()
+        self.baglanti.commit()
