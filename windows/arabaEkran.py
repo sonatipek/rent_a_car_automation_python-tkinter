@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from dbTransaction import dbTransactions
+from windows.dbTransaction import dbTransactions
 
 def arabaEkrani():
     dbIslemleri = dbTransactions("localhost", "root", "", "oto_kiralama")
@@ -29,7 +29,7 @@ def arabaEkrani():
         bedel = kiraBedeli_var.get()
         
 
-        dbIslemleri.setCar(tur, marka, model, yil, yakit, vites, guc, kasa, hacim, cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
+        dbIslemleri.setCar(tur, marka, model, yil, yakit, vites, guc, kasa, hacim, cekis, kapi, renk, motorNo, sasiNo, bedel, kira, kullanim)
 
         print(tur, marka, model, yil, yakit, vites, guc, kasa, hacim, cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
     
@@ -234,4 +234,3 @@ def arabaEkrani():
 
 
     arabaEkranim.mainloop()
-arabaEkrani()
