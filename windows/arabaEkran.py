@@ -29,7 +29,9 @@ def arabaEkrani():
         bedel = kiraBedeli_var.get()
         
 
-        dbIslemleri.setCar(tur, )
+        dbIslemleri.setCar(tur, marka, model, yil, yakit, vites, guc, kasa, hacim, cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
+
+        print(tur, marka, model, yil, yakit, vites, guc, kasa, hacim, cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
     
 
     # Araç Türü Girişi

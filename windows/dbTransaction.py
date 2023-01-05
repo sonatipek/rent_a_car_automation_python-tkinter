@@ -71,7 +71,7 @@ class dbTransactions:
     def setCar(self, aracTur, aracMarka, aracModel, aracUretimYili, aracYakitTur, aracVites, aracMotorGucu, aracKasaTip, aracMotorHacim, aracCekis, aracKapi, aracRenk, aracMotorNo, aracSasiNo, aracKiralamaBedeliGunluk, aracKiraDurumu, aracKullanimDurumu):
         mycursor = self.baglanti.cursor()
 
-        mycursor.execute(f"INSERT INTO araclar(arac_tur, arac_marka, arac_model, arac_uretim_yili, arac_yakit_tur, arac_vites, arac_motor_gucu, arac_kasa_tip, arac_motor_hacim, arac_cekis, arac_kapi, arac_renk, arac_motor_no, arac_sasi_no,arac_kiralama_bedeli_gunluk, arac_kira_durumu, arac_kullanim_durumu) VALUES('{aracTur}','{arac_marka}','{aracModel}','{aracUretimYili}','{aracYakitTur}','{aracVites}','{aracMotorGucu}','{aracKasaTip}','{aracMotorHacim}', '{aracCekis}','{aracKapi}','{aracRenk}', '{aracMotorNo}', '{aracSasiNo}', '{aracKiralamaBedeliGunluk}', '{aracKiraDurumu}', '{aracKullanimDurumu}')")
+        mycursor.execute(f"INSERT INTO araclar(arac_tur, arac_marka, arac_model, arac_uretim_yili, arac_yakit_tur, arac_vites, arac_motor_gucu, arac_kasa_tip, arac_motor_hacim, arac_cekis, arac_kapi, arac_renk, arac_motor_no, arac_sasi_no,arac_kiralama_bedeli_gunluk, arac_kira_durumu, arac_kullanim_durumu) VALUES('{aracTur}','{aracMarka}','{aracModel}','{aracUretimYili}','{aracYakitTur}','{aracVites}','{aracMotorGucu}','{aracKasaTip}','{aracMotorHacim}', '{aracCekis}','{aracKapi}','{aracRenk}', '{aracMotorNo}', '{aracSasiNo}', '{aracKiralamaBedeliGunluk}', '{aracKiraDurumu}', '{aracKullanimDurumu}')")
 
         self.baglanti.commit()
 
