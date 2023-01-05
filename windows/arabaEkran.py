@@ -1,11 +1,37 @@
 from tkinter import *
 from tkinter import ttk
+from dbTransaction import dbTransactions
 
 def arabaEkrani():
+    dbIslemleri = dbTransactions("localhost", "root", "", "oto_kiralama")
     arabaEkranim = Tk()
     arabaEkranim.title("Araba Bilgileri Giriş Ekranı")
     arabaEkranim.geometry("360x680+50+50")
     arabaEkranim.resizable("false", "false")
+
+    def ButtonClicked():
+        tur = yakit_var.get()
+        yil = uretimYili_var.get()
+        marka = marka_var.get()
+        model = aracModel_var.get()
+        yakit = yakit_var.get()
+        vites = vites_var.get()
+        guc = motorGucu_var.get()
+        hacim = motorHacmi_var.get()
+        kasa = kasaTipi_var.get()
+        cekis = cekis_var.get()
+        kapi = aracKapi_var.get()
+        renk = renk_var.get()
+        motorNo = motorNo_var.get()
+        sasiNo = sasiNo_var.get()
+        kira = kira_var.get()
+        kullanim = kullanim_var.get()
+        bedel = kiraBedeli_var.get()
+        
+
+        dbIslemleri.setCar()
+
+        print(tur,  marka, model, yil, yakit, vites, guc, kasa, hacim,cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
     
 
     # Araç Türü Girişi
@@ -197,7 +223,7 @@ def arabaEkrani():
 
 
     # Müşteri Kaydet Button
-    Button(arabaEkranim, text="Aracı Kaydet", command=None, 
+    Button(arabaEkranim, text="Aracı Kaydet", command=ButtonClicked, 
         bg="#0A2647", 
         border="0",
         fg="white",
