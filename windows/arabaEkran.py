@@ -10,10 +10,10 @@ def arabaEkrani():
     arabaEkranim.resizable("false", "false")
 
     def ButtonClicked():
-        tur = yakit_var.get()
-        yil = uretimYili_var.get()
+        tur = aracTuru_var.get()
         marka = marka_var.get()
         model = aracModel_var.get()
+        yil = uretimYili_var.get()
         yakit = yakit_var.get()
         vites = vites_var.get()
         guc = motorGucu_var.get()
@@ -29,9 +29,7 @@ def arabaEkrani():
         bedel = kiraBedeli_var.get()
         
 
-        dbIslemleri.setCar()
-
-        print(tur,  marka, model, yil, yakit, vites, guc, kasa, hacim,cekis, kapi, renk, motorNo, sasiNo, kira, kullanim, bedel)
+        dbIslemleri.setCar(tur, )
     
 
     # Araç Türü Girişi
