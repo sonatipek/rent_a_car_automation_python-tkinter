@@ -26,7 +26,7 @@ try:
                 height=3, 
                 width=22).grid(padx=2, pady=2, row=1, column=4)
 except:
-        messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine getirilmeyecektir.")
+        messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine GETİRİLMEYECEKTİR!")
 
 
 # Font Tanımlaması
