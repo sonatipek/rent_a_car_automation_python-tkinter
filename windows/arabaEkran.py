@@ -3,8 +3,8 @@ from tkinter import ttk
 
 def arabaEkrani():
     arabaEkranim = Tk()
-    arabaEkranim.title("Bergama Araç Kiralama | Araba Bilgileri Giriş Ekranı")
-    arabaEkranim.geometry("720x480+50+50")
+    arabaEkranim.title("Araba Bilgileri Giriş Ekranı")
+    arabaEkranim.geometry("360x680+50+50")
     arabaEkranim.resizable("false", "false")
     
 
@@ -187,13 +187,24 @@ def arabaEkrani():
 
     # Kira Bilgisi Girişi
     kiraBedeli_var = IntVar()
-    Label(arabaEkranim, text="Araç Kirada Mı:", font="Arial 10").place(x=10, y=400)
-    ttk.Combobox(arabaEkranim, textvariable=kiraBedeli_var, values=("Kirada", "Kirada Değil"),
-        state="readonly",
-        background="white",
+    Label(arabaEkranim, text="Aracın Günlük Kira Bedeli:", font="Arial 10").place(x=10, y=450)
+    Entry(arabaEkranim, textvariable=kiraBedeli_var,
+        bg="white",
         font="Arial 11",
-        foreground="#0A2647",
-        width=13).place(x=10, y=420)
+        fg="#0A2647",
+        relief="flat",
+        width=33).place(x=10, y=470)
+
+
+    # Müşteri Kaydet Button
+    Button(arabaEkranim, text="Aracı Kaydet", command=None, 
+        bg="#0A2647", 
+        border="0",
+        fg="white",
+        height=2, 
+        width=26,
+        font="Arial 12 bold",
+        cursor="mouse").place(x=10, y=530)
 
 
     arabaEkranim.mainloop()
