@@ -18,6 +18,13 @@ mainWindow.configure(background="white")
 # Veritabanı bağlantısı
 try:
         db1 = dbTransactions("localhost", "root", "", "oto_kiralama")
+        # Veritabanı silme butonu
+        dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=db1.deleteDb, 
+                bg="#0A2647", 
+                border="0", 
+                fg="white",
+                height=3, 
+                width=22).grid(padx=2, pady=2, row=1, column=4)
 except:
         messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine getirilmeyecektir.")
 
@@ -37,7 +44,7 @@ musteriEkle = Button(mainWindow, text="Müşteri Ekle", command=musteriEkran,
 # Araba Ekleme Butonu ile araba ekleme sayfasına yönlendirme
 arabaEkle = Button(mainWindow, text="Araba Ekle", command=arabaEkrani,
         bg="#0A2647", 
-        border="0", 
+        bd="0", 
         fg="white",
         height=3, 
         width=20,
@@ -64,12 +71,5 @@ aracListele = Button(mainWindow, text="Kiralanan Araçları Listele", command=Li
 copyrightLabel = Label(mainWindow, text="© 2022 Sonat Saygın İpek | Bergama MYO Bilgisayar Programcılığı 2.Sınıf",
         bg="white").grid(row=1, column=0)
 
-# # Veritabanı silme butonu
-dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=db1.deleteDb, 
-        bg="#0A2647", 
-        border="0", 
-        fg="white",
-        height=3, 
-        width=20).grid(padx=2, pady=2, row=1, column=0)
 
 mainWindow.mainloop()
