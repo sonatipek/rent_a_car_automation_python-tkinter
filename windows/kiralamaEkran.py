@@ -15,7 +15,9 @@ def kiralamaEkrani():
         ucret = ucret[0]    #sadeleştirme işlemi
         gun = gun_var.get()
         kiralamaUcret_var.set(f"{ucret[0] * gun} TL" )
-        print(ucret[0] * gun)
+        
+
+        
 
         
 

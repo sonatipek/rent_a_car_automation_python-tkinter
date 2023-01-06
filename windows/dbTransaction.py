@@ -90,6 +90,22 @@ class dbTransactions:
         sonuc = mycursor.fetchall()
         
         return sonuc
+
+    def getRent(self):
+        mycursor = self.baglanti.cursor()
+        mycursor.execute("SELECT * FROM kiralama_bilgileri")
+
+        sonuc = mycursor.fetchall()
+        
+        return sonuc
+
+    def setRent(self, musteriID, aracID, kiralamaGun, kiralamaHedef):
+        mycursor = self.baglanti.cursor()
+
+        mycursor.execute(f"INSERT INTO kiralama_bilgileri(musteri_id, arac_id, kiralama_gun, kiralama_hedef) VALUES('{musteriID}', '{aracID}', '{kiralamaGun}', '{kiralamHedef}')")
+
+        self.baglanti.commit()
+   
     
     def deleteDb(self):
         mycursor = self.baglanti.cursor()
