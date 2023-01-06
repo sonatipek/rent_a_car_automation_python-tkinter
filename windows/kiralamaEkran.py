@@ -9,6 +9,16 @@ def kiralamaEkrani():
     kiralamaEkranim.geometry("720x480+100+100")
     kiralamaEkranim.resizable("false", "false")
 
+    def ButtonClicked():
+        sonuc = araclar_var.get().split(" ")
+        ucret = dbIslemleri.getFee(sonuc[0], sonuc[1], sonuc[2])
+        ucret = ucret[0]    #sadeleştirme işlemi
+        gun = gun_var.get()
+        kiralamaUcret_var.set(f"{ucret[0] * gun} TL" )
+        print(ucret[0] * gun)
+
+        
+
     # Müşteri Seçimi
     musteriler_var = StringVar()
     musteriler=dbIslemleri.getCustomers()
@@ -53,12 +63,13 @@ def kiralamaEkrani():
         width=24
         ).place(x=10, y=180)
 
+    kiralamaUcret_var= StringVar()
     Label(kiralamaEkranim, text="Kiralama Ücreti:", font="Arial 10").place(x=250, y=30)
-    kiralamaUcret=Label(kiralamaEkranim, text="30 TL", font="Arial 10").place(x=350, y=30)
+    kiralamaUcret=Label(kiralamaEkranim, text=" ", textvariable=kiralamaUcret_var, font="Arial 10").place(x=350, y=30)
 
         
     # Müşteri Kaydet Button
-    Button(kiralamaEkranim, text="Kiralama Oluştur", command=None, 
+    Button(kiralamaEkranim, text="Kiralama Oluştur", command=ButtonClicked, 
         bg="#0A2647", 
         border="0",
         fg="white",

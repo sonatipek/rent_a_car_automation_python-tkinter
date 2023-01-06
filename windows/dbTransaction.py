@@ -83,9 +83,9 @@ class dbTransactions:
         
         return sonuc
 
-    def getFee(self):
+    def getFee(self, marka, model, yil):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT arac_kiralama_bedeli_gunluk FROM araclar")
+        mycursor.execute(f"SELECT arac_kiralama_bedeli_gunluk FROM araclar WHERE arac_marka = '{marka}' AND arac_model = '{model}' AND arac_uretim_yili = '{yil}'")
 
         sonuc = mycursor.fetchall()
         
