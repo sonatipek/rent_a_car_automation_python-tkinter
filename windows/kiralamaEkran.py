@@ -9,11 +9,22 @@ def kiralamaEkrani():
     kiralamaEkranim.geometry("720x480+100+100")
     kiralamaEkranim.resizable("false", "false")
 
-    # Araç Yakıt Türü Girişi
+    # Müşteri Seçimi
     musteriler_var = StringVar()
     musteriler=dbIslemleri.getCustomers()
-    Label(kiralamaEkranim, text="Müşteriler:", font="Arial 10").place(x=10, y=110)
+    Label(kiralamaEkranim, text="Müşteriler:", font="Arial 10").place(x=10, y=10)
     ttk.Combobox(kiralamaEkranim, textvariable=musteriler_var, values=musteriler,
+        state="readonly",
+        background="white",
+        font="Arial 11",
+        foreground="#0A2647",
+        width=13).place(x=10, y=30)
+
+    # Araç Seçimi
+    araclar_var = StringVar()
+    araclar=dbIslemleri.getCars()
+    Label(kiralamaEkranim, text="Araçlar:", font="Arial 10").place(x=10, y=110)
+    ttk.Combobox(kiralamaEkranim, textvariable=araclar_var, values=araclar,
         state="readonly",
         background="white",
         font="Arial 11",

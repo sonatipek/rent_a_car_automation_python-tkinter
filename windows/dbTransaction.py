@@ -77,7 +77,7 @@ class dbTransactions:
 
     def getCars(self):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT * FROM araclar")
+        mycursor.execute("SELECT arac_marka, arac_model, arac_uretim_yili FROM araclar")
 
         sonuc = mycursor.fetchall();
         
