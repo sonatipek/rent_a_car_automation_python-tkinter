@@ -15,9 +15,12 @@ def kiralamaEkrani():
         ucret = ucret[0]    #sadeleştirme işlemi
         gun = gun_var.get()
         musteri_id = musteriler_var.get()[0]
-        araclar_id = araclar_var.get()[0]
+        arac_id = araclar_var.get()[0]
+        yolculuk = yolculuk_var.get()
+
         kiralamaUcret_var.set(f"{ucret[0] * gun} TL" )
-        
+        dbIslemleri.setRent(musteri_id, arac_id, gun, yolculuk)
+        print(musteri_id, arac_id, gun, yolculuk)
 
     # Müşteri Seçimi
     musteriler_var = StringVar()

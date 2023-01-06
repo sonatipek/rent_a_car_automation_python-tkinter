@@ -103,7 +103,7 @@ class dbTransactions:
     def setRent(self, musteriID, aracID, kiralamaGun, kiralamaHedef):
         mycursor = self.baglanti.cursor()
 
-        mycursor.execute(f"INSERT INTO kiralama_bilgileri(musteri_id, arac_id, kiralama_gun, kiralama_hedef) VALUES('{musteriID}', '{aracID}', '{kiralamaGun}', '{kiralamHedef}')")
+        mycursor.execute(f"INSERT INTO kiralama_bilgileri(musteri_id, arac_id, kiralama_gun, kiralama_hedef) VALUES('{musteriID}', '{aracID}', '{kiralamaGun}', '{kiralamaHedef}')")
 
         self.baglanti.commit()
 
