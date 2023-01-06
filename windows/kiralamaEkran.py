@@ -53,6 +53,9 @@ def kiralamaEkrani():
         width=24
         ).place(x=10, y=180)
 
+    Label(kiralamaEkranim, text="Kiralama Ücreti:", font="Arial 10").place(x=250, y=30)
+    kiralamaUcret=Label(kiralamaEkranim, text="30 TL", font="Arial 10").place(x=350, y=30)
+
         
     # Müşteri Kaydet Button
     Button(kiralamaEkranim, text="Kiralama Oluştur", command=None, 
