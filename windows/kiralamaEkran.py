@@ -11,19 +11,18 @@ def kiralamaEkrani():
 
     def ButtonClicked():
         sonuc = araclar_var.get().split(" ")
-        ucret = dbIslemleri.getFee(sonuc[0], sonuc[1], sonuc[2])
+        ucret = dbIslemleri.getFee(sonuc[1], sonuc[2], sonuc[3])
         ucret = ucret[0]    #sadeleştirme işlemi
         gun = gun_var.get()
+        musteri_id = musteriler_var.get()[0]
+        araclar_id = araclar_var.get()[0]
         kiralamaUcret_var.set(f"{ucret[0] * gun} TL" )
-        
-
-        
-
         
 
     # Müşteri Seçimi
     musteriler_var = StringVar()
     musteriler=dbIslemleri.getCustomers()
+
     Label(kiralamaEkranim, text="Müşteriler:", font="Arial 10").place(x=10, y=10)
     ttk.Combobox(kiralamaEkranim, textvariable=musteriler_var, values=musteriler,
         state="readonly",

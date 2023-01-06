@@ -62,8 +62,9 @@ class dbTransactions:
 
     def getCustomers(self):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT ad, soyad FROM musteriler")
 
+
+        mycursor.execute("SELECT musteri_id, ad, soyad FROM musteriler")
         sonuc = mycursor.fetchall()
         
         return sonuc
@@ -77,7 +78,7 @@ class dbTransactions:
 
     def getCars(self):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT arac_marka, arac_model, arac_uretim_yili FROM araclar")
+        mycursor.execute("SELECT arac_id, arac_marka, arac_model, arac_uretim_yili FROM araclar")
 
         sonuc = mycursor.fetchall()
         
@@ -105,8 +106,8 @@ class dbTransactions:
         mycursor.execute(f"INSERT INTO kiralama_bilgileri(musteri_id, arac_id, kiralama_gun, kiralama_hedef) VALUES('{musteriID}', '{aracID}', '{kiralamaGun}', '{kiralamHedef}')")
 
         self.baglanti.commit()
-   
-    
+
+
     def deleteDb(self):
         mycursor = self.baglanti.cursor()
 
