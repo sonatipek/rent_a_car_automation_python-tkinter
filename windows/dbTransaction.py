@@ -62,11 +62,11 @@ class dbTransactions:
 
     def getCustomers(self):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT * FROM musteriler")
+        mycursor.execute("SELECT ad, soyad FROM musteriler")
 
         sonuc = mycursor.fetchall()
-        for i in sonuc:
-            print (i)
+        
+        return sonuc
 
     def setCar(self, aracTur, aracMarka, aracModel, aracUretimYili, aracYakitTur, aracVites, aracMotorGucu, aracKasaTip, aracMotorHacim, aracCekis, aracKapi, aracRenk, aracMotorNo, aracSasiNo, aracKiralamaBedeliGunluk, aracKiraDurumu, aracKullanimDurumu):
         mycursor = self.baglanti.cursor()
@@ -80,8 +80,8 @@ class dbTransactions:
         mycursor.execute("SELECT * FROM araclar")
 
         sonuc = mycursor.fetchall();
-        for i in sonuc:
-            print (i)
+        
+        return sonuc
     
     def deleteDb(self):
         mycursor = self.baglanti.cursor()
