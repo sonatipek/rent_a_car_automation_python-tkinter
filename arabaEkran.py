@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from windows.dbTransaction import dbTransactions
+from dbTransaction import dbTransactions
 
 def arabaEkrani():
     dbIslemleri = dbTransactions("localhost", "root", "", "oto_kiralama")
@@ -9,7 +9,7 @@ def arabaEkrani():
     arabaEkranim.geometry("360x680+50+50")
     arabaEkranim.resizable("false", "false")
 
-    def ButtonClicked():
+    def dbKaydet_Araba():
         tur = aracTuru_var.get()
         marka = marka_var.get()
         model = aracModel_var.get()
@@ -223,7 +223,7 @@ def arabaEkrani():
 
 
     # Müşteri Kaydet Button
-    Button(arabaEkranim, text="Aracı Kaydet", command=ButtonClicked, 
+    Button(arabaEkranim, text="Aracı Kaydet", command=dbKaydet_Araba, 
         bg="#0A2647", 
         border="0",
         fg="white",

@@ -9,7 +9,7 @@ def kiralamaEkrani():
     kiralamaEkranim.geometry("720x480+100+100")
     kiralamaEkranim.resizable("false", "false")
 
-    def ButtonClicked():
+    def dbKaydet_Kiralama():
         sonuc = araclar_var.get().split(" ")
         ucret = dbIslemleri.getFee(sonuc[1], sonuc[2], sonuc[3])
         ucret = ucret[0]    #sadeleştirme işlemi
@@ -73,7 +73,7 @@ def kiralamaEkrani():
 
         
     # Müşteri Kaydet Button
-    Button(kiralamaEkranim, text="Kiralama Oluştur", command=ButtonClicked, 
+    Button(kiralamaEkranim, text="Kiralama Oluştur", command=dbKaydet_Kiralama, 
         bg="#0A2647", 
         border="0",
         fg="white",
@@ -83,5 +83,3 @@ def kiralamaEkrani():
         cursor="mouse").place(x=10, y=250)
     
     kiralamaEkranim.mainloop()
-
-kiralamaEkrani()

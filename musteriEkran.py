@@ -1,5 +1,5 @@
 from tkinter import *
-from windows.dbTransaction import dbTransactions
+from dbTransaction import dbTransactions
 
 
 def musteriEkran():
@@ -9,7 +9,7 @@ def musteriEkran():
     musteriEkranim.geometry("720x240+150+150")
     musteriEkranim.resizable("false","false")
 
-    def ButtonClicked():
+    def dbKaydet_Musteri():
         ad = ad_var.get()
         soyad = soyad_var.get()
         tcno = tcno_var.get()
@@ -21,14 +21,14 @@ def musteriEkran():
         medeni = medeni_var.get()
         egitim = egitim_var.get()
         
-
-        dbIslemleri.setCustomer(ad=ad, soyad=soyad, tcNo=tcno, dogumTarihi=dogum, adres=adres, cepNo=cepno, meslek=meslek, ehliyetSinifi=ehliyet, medeniDurum=medeni, egitimDurum=egitim)
+        print(ad, soyad, tcno, cepno, dogum, adres, meslek, ehliyet, medeni, egitim)
+        # dbIslemleri.setCustomer(ad=ad, soyad=soyad, tcNo=tcno, dogumTarihi=dogum, adres=adres, cepNo=cepno, meslek=meslek, ehliyetSinifi=ehliyet, medeniDurum=medeni, egitimDurum=egitim)
 
 
     # Müşteri Ad Girişi
     ad_var = StringVar()
-    musteriAd_label = Label(musteriEkranim, text="Müşteri Adı:", font="Arial 10").place(x=10, y=10)
-    musteri_ad = Entry(musteriEkranim, textvariable=ad_var,
+    Label(musteriEkranim, text="Müşteri Adı:", font="Arial 10").place(x=10, y=10)
+    Entry(musteriEkranim, textvariable=ad_var,
         bg="white",
         font="Arial 11",
         fg="#0A2647",
@@ -39,8 +39,8 @@ def musteriEkran():
 
     # Müşteri Soyad Girişi
     soyad_var = StringVar()
-    musteriSoyad_label = Label(musteriEkranim, text="Müşteri Soyadı:", font="Arial 10").place(x=150, y=10)
-    musteri_soyad = Entry(musteriEkranim, textvariable=soyad_var,
+    Label(musteriEkranim, text="Müşteri Soyadı:", font="Arial 10").place(x=150, y=10)
+    Entry(musteriEkranim, textvariable=soyad_var,
         bg="white",
         font="Arial 11",
         fg="#0A2647",
@@ -49,8 +49,8 @@ def musteriEkran():
 
     # Müşteri TC NO Girişi
     tcno_var = StringVar()
-    musteriTC_label = Label(musteriEkranim, text="Müşteri T.C. No:", font="Arial 10").place(x=10, y=60)
-    musteri_tc = Entry(musteriEkranim, textvariable=tcno_var,
+    Label(musteriEkranim, text="Müşteri T.C. No:", font="Arial 10").place(x=10, y=60)
+    Entry(musteriEkranim, textvariable=tcno_var,
         bg="white",
         font="Arial 11",
         fg="#0A2647",
@@ -60,8 +60,8 @@ def musteriEkran():
 
     # Müşteri Cep No Girişi
     cepno_var = StringVar()
-    musteriCep_label = Label(musteriEkranim, text="Müşteri Cep No:", font="Arial 10").place(x=150, y=60)
-    musteri_cep = Entry(musteriEkranim, textvariable=cepno_var,
+    Label(musteriEkranim, text="Müşteri Cep No:", font="Arial 10").place(x=150, y=60)
+    Entry(musteriEkranim, textvariable=cepno_var,
         bg="white",
         font="Arial 11",
         fg="#0A2647",
@@ -71,8 +71,8 @@ def musteriEkran():
 
     # Müşteri Doğum Tarihi Girişi
     dogum_var = StringVar()
-    musteriDogum_label = Label(musteriEkranim, text="Müşteri Doğum Tarihi:", font="Arial 10").place(x=10, y=110)
-    musteri_dogum = Entry(musteriEkranim, textvariable=dogum_var,
+    Label(musteriEkranim, text="Müşteri Doğum Tarihi:", font="Arial 10").place(x=10, y=110)
+    Entry(musteriEkranim, textvariable=dogum_var,
         bg="white",
         font="Arial 11",
         fg="#0A2647",
@@ -81,7 +81,7 @@ def musteriEkran():
 
     # Müşteri Adres Girişi
     adres_var = StringVar()
-    musteriAdres_label = Label(musteriEkranim, text="Müşteri Adres Tarihi:", font="Arial 10").place(x=10, y=160)
+    musteriAdres_label = Label(musteriEkranim, text="Müşteri Adresi:", font="Arial 10").place(x=10, y=160)
     musteri_adres = Entry(musteriEkranim, textvariable=adres_var,
         bg="white",
         font="Arial 11",
@@ -131,7 +131,7 @@ def musteriEkran():
     
 
     # Müşteri Kaydet Button
-    musteriKaydet  = Button(musteriEkranim, text="Müşteriyi Kaydet", command=ButtonClicked, 
+    musteriKaydet  = Button(musteriEkranim, text="Müşteriyi Kaydet", command=dbKaydet_Musteri, 
         bg="#0A2647", 
         border="0",
         fg="white",

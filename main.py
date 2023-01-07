@@ -2,13 +2,13 @@ from tkinter import *
 from tkinter import messagebox
 
 # Windows
-from windows.musteriEkran import musteriEkran
-from windows.arabaEkran import arabaEkrani
-from windows.kiralamaEkran import kiralamaEkrani
-from windows.listeEkran import ListeEkrani
+from musteriEkran import musteriEkran
+from arabaEkran import arabaEkrani
+from kiralamaEkran import kiralamaEkrani
+from listeEkran import ListeEkrani
 
 # Veritabanı işlemlerinin dahil edilmesi
-from windows.dbTransaction import dbTransactions
+from dbTransaction import dbTransactions
 
 mainWindow = Tk()
 mainWindow.title("Bergama Araç Kiralama | Ana Menü")
