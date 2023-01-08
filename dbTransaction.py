@@ -78,23 +78,15 @@ class dbTransactions:
 
     def getCars(self):
         mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT arac_id, arac_marka, arac_model, arac_uretim_yili FROM araclar")
+        mycursor.execute("SELECT arac_id, arac_marka, arac_model, arac_uretim_yili FROM araclar  WHERE arac_kira_durumu = 'Kirada Değil' AND arac_kullanim_durumu = 'Kullanılabilir'")
 
         sonuc = mycursor.fetchall()
         
         return sonuc
 
-    def getFee(self, marka, model, yil):
+    def getFee(self, aracID):
         mycursor = self.baglanti.cursor()
-        mycursor.execute(f"SELECT arac_kiralama_bedeli_gunluk FROM araclar WHERE arac_marka = '{marka}' AND arac_model = '{model}' AND arac_uretim_yili = '{yil}'")
-
-        sonuc = mycursor.fetchall()
-        
-        return sonuc
-
-    def getRent(self):
-        mycursor = self.baglanti.cursor()
-        mycursor.execute("SELECT * FROM kiralama_bilgileri")
+        mycursor.execute(f"SELECT arac_kiralama_bedeli_gunluk FROM araclar WHERE arac_id = '{aracID}'")
 
         sonuc = mycursor.fetchall()
         
@@ -104,6 +96,20 @@ class dbTransactions:
         mycursor = self.baglanti.cursor()
 
         mycursor.execute(f"INSERT INTO kiralama_bilgileri(musteri_id, arac_id, kiralama_gun, kiralama_hedef) VALUES('{musteriID}', '{aracID}', '{kiralamaGun}', '{kiralamaHedef}')")
+
+        self.baglanti.commit()
+
+    def getRent(self):
+        mycursor = self.baglanti.cursor()
+        mycursor.execute("SELECT a.arac_marka, a.arac_model, a.arac_uretim_yili, m.ad, m.soyad, k.kiralama_gun, k.kiralama_gun * a.arac_kiralama_bedeli_gunluk FROM musteriler m INNER JOIN kiralama_bilgileri k ON m.musteri_id=k.musteri_id INNER JOIN araclar a ON k.arac_id=a.arac_id")
+
+        sonuc = mycursor.fetchall()
+        
+        return sonuc
+
+    def updateRent(self, aracID):
+        mycursor = self.baglanti.cursor()
+        mycursor.execute(f"UPDATE araclar SET arac_kira_durumu = 'Kirada' WHERE arac_id =  '{aracID}'")
 
         self.baglanti.commit()
 
