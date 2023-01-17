@@ -9,19 +9,20 @@ from dbTransaction import dbTransactions
 # *! Main Window 
 mainWindow = Tk()
 mainWindow.title("Bergama Araç Kiralama | Ana Menü")
+mainWindow.geometry("1080x720+10+10")
 mainWindow.resizable("false","false")
 mainWindow.configure(background="white")
 
 # Veritabanı bağlantısı
 try:
-        dbIslemleri = dbTransactions("localhost", "root", "", "oto_kiralama")
+        dbIslemleri = dbTransactions("localhost", "root", "deneme", "db90210000216")
         # Veritabanı silme butonu
         dbSil = Button(mainWindow, text="Veritabanını sil (önerilmez!)", command=dbIslemleri.deleteDb, 
                 bg="#0A2647", 
                 border="0", 
                 fg="white",
                 height=3, 
-                width=22).grid(padx=2, pady=2, row=1, column=4)
+                width=22).place(x=900, y=650)
 except:
         messagebox.showinfo(title="Veritabanına Bağlanılamadı", message="Veritabanı bağlantısı kurulamadı! Program arayüzü çalışacaktır fakat işlevler yerine GETİRİLMEYECEKTİR!")
 
@@ -516,7 +517,47 @@ def ListeEkrani():
 # *! Listeleme Ekranı Bitiş
 
 
-# Müşteri Ekleme Butonu ile müşteri ekleme sayfasına yönlendirme
+# *! Arama Ekranı
+def aramaEkrani():
+    aramaEkranim = Toplevel()
+    aramaEkranim.title("Bergama Araç Kiralama | Müşteri Arama Ekranı")
+    aramaEkranim.geometry("720x480+100+100")
+    aramaEkranim.resizable("false", "false")
+    Scrollbar(aramaEkranim).pack(side = RIGHT, fill = BOTH)
+
+    def aramaYap():
+        deger = arama_var.get()
+        sonuc = dbIslemleri.getSearch(deger)
+        
+
+        for i in range(0, 100, 1):
+            Label(aramaEkranim, text="\t\t\t\t\t\t", font="Arial 10",bg="white",).place(x=300, y=50* (i+1))
+    
+
+        for i in range(0, len(sonuc), 1):
+            Label(aramaEkranim, text=f"{i+1}.\tAd: {sonuc[i][0]} \tEhliyet Sınıfı: {sonuc[i][1]}", font="Arial 10",bg="white",).place(x=300, y=50* (i+1))
+    
+
+    arama_var = StringVar()
+    Label(aramaEkranim, text="Müşteriyi Ara:", font="Arial 10",bg="white",).place(x=10, y=20)
+    Entry(aramaEkranim, textvariable=arama_var,bg="white",font="Arial 11", fg="#0A2647",width=24).place(x=10, y=50)
+    Button(aramaEkranim, text="Ara", command=aramaYap,
+        bg="#0A2647", 
+        bd="2", 
+        fg="white", 
+        font=myFont
+        ).place(x=10, y=80)
+
+    Label(aramaEkranim, text="Sonuclar:",font="Arial 16").place(x=300, y=20)
+
+
+    
+    aramaEkranim.mainloop()
+#  *!Arama Ekranı Bitiş
+
+
+
+
 musteriEkle = Button(mainWindow, text="Müşteri Ekle", command=musteriEkran,
         bg="#0A2647", 
         bd="0", 
@@ -524,7 +565,7 @@ musteriEkle = Button(mainWindow, text="Müşteri Ekle", command=musteriEkran,
         height=3, 
         width=20,
         font=myFont
-        ).grid(padx=2, pady=200, row=0, column=0)
+        ).place(x=50, y=300)
 
 # Araba Ekleme Butonu ile araba ekleme sayfasına yönlendirme
 arabaEkle = Button(mainWindow, text="Araba Ekle", command=arabaEkrani,
@@ -533,7 +574,7 @@ arabaEkle = Button(mainWindow, text="Araba Ekle", command=arabaEkrani,
         fg="white",
         height=3, 
         width=20,
-        font=myFont).grid(padx=2, pady=200, row=0, column=1)
+        font=myFont).place(x=300, y=300)
 
 
 # Araç Kirala Butonu ile araç kiralama sayfasına yönlendirme
@@ -543,7 +584,7 @@ aracKirala  = Button(mainWindow, text="Araç Kirala", command=kiralamaEkrani,
         fg="white",
         height=3, 
         width=20,
-        font=myFont).grid(padx=2, pady=200, row=0, column=2)
+        font=myFont).place(x=550, y=300)
 
 # Araç Listeleme Butonu ile araç listeleme sayfasına yönlendirme
 aracListele = Button(mainWindow, text="Kiralanan Araçları Listele", command=ListeEkrani, 
@@ -552,10 +593,19 @@ aracListele = Button(mainWindow, text="Kiralanan Araçları Listele", command=Li
         fg="white",
         height=3, 
         width=20, 
-        font=myFont).grid(padx=2, pady=200, row=0, column=3)
+        font=myFont).place(x=800, y=300)
+
+# Araç Listeleme Butonu ile araç listeleme sayfasına yönlendirme
+aramaEkran = Button(mainWindow, text="Müşteri Arama Ekranına Git", command=aramaEkrani, 
+        bg="#0A2647", 
+        border="0", 
+        fg="white",
+        height=3, 
+        width=20, 
+        font=myFont).place(x=800, y=500)
 
 copyrightLabel = Label(mainWindow, text="© 2022 Sonat Saygın İpek | Bergama MYO Bilgisayar Programcılığı 2.Sınıf",
-        bg="white").grid(row=1, column=0)
+        bg="white").place(x=30, y=680)
 
 
 mainWindow.mainloop()

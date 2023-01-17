@@ -120,3 +120,11 @@ class dbTransactions:
         mycursor.execute(f"DROP DATABASE {self.mydb}")
 
         self.baglanti.commit()
+
+    def getSearch(self, value):
+        mycursor = self.baglanti.cursor()
+        mycursor.execute(f"SELECT ad, ehliyet_sinifi FROM musteriler WHERE ad LIKE '{value}%'")
+
+        sonuc = mycursor.fetchall()
+        
+        return sonuc
