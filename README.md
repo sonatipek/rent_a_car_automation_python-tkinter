@@ -14,3 +14,7 @@ Develop a software on car rental system using Python programming language and Tk
 ## Design State
 
 ### Wireframes
+![Customer Information UI](https://github.com/sonatipek/rent_a_car_otomation_python-tkinter/blob/main/wireframes/M%C3%BC%C5%9Fteri%20Bilgileri.png "Customer Information UI")
+![Vehicle Information UI](https://github.com/sonatipek/rent_a_car_otomation_python-tkinter/blob/main/wireframes/Ara%C3%A7%20Bilgileri.png "Vehicle Information UI")
+![Rent a Car UI](https://github.com/sonatipek/rent_a_car_otomation_python-tkinter/blob/main/wireframes/Ara%C3%A7%20Kiralama.png "Rent A Car UI")
+![Rent List UI](https://github.com/sonatipek/rent_a_car_otomation_python-tkinter/blob/main/wireframes/Kiralama%20Listesi.png "Rent List UI")
