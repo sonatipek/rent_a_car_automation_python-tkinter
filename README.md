@@ -31,5 +31,15 @@ _Rent a Car UI_
 _Rent List UI_
 
 ### Flow Schema
-#### Schema Info
+![Diagram / Work Plan](https://github.com/sonatipek/rent_a_car_automation_python-tkinter/blob/main/diagrams/flow_scheme_en.PNG "Diagram / Work Plan")
+
+_Diagram / Work Plan_
+
+![Detailed Diagram / Detailed Work Plan](https://github.com/sonatipek/rent_a_car_automation_python-tkinter/blob/main/diagrams/scheme_detail_en.PNG "Detailed Diagram / Detailed Work Plan")
+
+_Detailed Diagram / Detailed Work Plan_
+#### Scheme Info
+![Scheme Info](https://github.com/sonatipek/rent_a_car_automation_python-tkinter/blob/main/diagrams/color_schema_en.PNG "Scheme Info")
+
+_Scheme Info_
 
