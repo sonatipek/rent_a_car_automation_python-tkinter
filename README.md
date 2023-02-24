@@ -1,4 +1,4 @@
-# Rent A Car Otomation 
+# Rent A Car Automation
 
 ## Mission
 Develop a software on car rental system using Python programming language and Tkinter interface and Mysql database. Requirements that should be in the software: The programme will have 4 buttons on the main screen and new screens will be opened with the help of these buttons. These screens are;
@@ -29,4 +29,7 @@ _Rent a Car UI_
 ![Rent List UI](https://github.com/sonatipek/rent_a_car_otomation_python-tkinter/blob/main/wireframes/Kiralama%20Listesi.png "Rent List UI")
 
 _Rent List UI_
+
+### Flow Schema
+#### Schema Info
 
